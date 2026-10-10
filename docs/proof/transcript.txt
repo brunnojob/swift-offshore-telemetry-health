@@ -1,0 +1,20 @@
+$ bash -e -o pipefail -c swiftc Sources/main.swift -o app && ./app --self-test && ./app < examples/input.txt
+Tests passed
+{"age":3.0999999999999996,"averageLatency":0.13333333333333333,"duplicate":0,"latencyDeviation":0.057735026918962526,"lost":1,"packets":3,"stale":true,"tag":"PT101"}
+{"age":0.09999999999999964,"averageLatency":0.09999999999999964,"duplicate":0,"latencyDeviation":0,"lost":0,"packets":1,"stale":false,"tag":"TT102"}
+
+$ ./app
+{"age":3.0999999999999996,"averageLatency":0.13333333333333333,"duplicate":0,"latencyDeviation":0.057735026918962526,"lost":1,"packets":3,"stale":true,"tag":"PT101"}
+{"age":0.09999999999999964,"averageLatency":0.09999999999999964,"duplicate":0,"latencyDeviation":0,"lost":0,"packets":1,"stale":false,"tag":"TT102"}
+
+$ ./app
+Missing input
+
+$ ./app
+Invalid CSV row
+
+$ ./app --unsupported
+Unsupported command arguments
+
+$ ./app
+Input record too large

@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "repository": "brunnojob/swift-offshore-telemetry-health",
+  "source_commit": "b1263bcac792e26bc34d8021b5df2401a99bcd33",
+  "generated_at": "2026-10-10T02:36:10.022723+00:00",
+  "run_url": "https://github.com/brunnojob/swift-offshore-telemetry-health/actions/runs/38017551409",
+  "inputs_sha256": {
+    ".proof/scenarios.json": "9e00a36a0c2803dacfdd2c47a92fd248ba476d5f2f361a0466423836e1ee47e8",
+    "examples/input.txt": "9f4f379e828cbc4d28ed99f5f701296b245d478503bae067cc01f01890155094"
+  },
+  "cases": [
+    {
+      "display": false,
+      "name": "swiftc Sources/main.swift -o app && ./app --self-test && ./app < examples/input.txt",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "swiftc Sources/main.swift -o app && ./app --self-test && ./app < examples/input.txt"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 7.609,
+      "output": "Tests passed\n{\"age\":3.0999999999999996,\"averageLatency\":0.13333333333333333,\"duplicate\":0,\"latencyDeviation\":0.057735026918962526,\"lost\":1,\"packets\":3,\"stale\":true,\"tag\":\"PT101\"}\n{\"age\":0.09999999999999964,\"averageLatency\":0.09999999999999964,\"duplicate\":0,\"latencyDeviation\":0,\"lost\":0,\"packets\":1,\"stale\":false,\"tag\":\"TT102\"}\n",
+      "output_sha256": "4057bd8e98bed5f7dbc59c8a1c590be536e46c224fa944260d9ad9f99cf70642"
+    },
+    {
+      "display": true,
+      "name": "Application demonstration with checked output",
+      "argv": [
+        "./app"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.157,
+      "output": "{\"age\":3.0999999999999996,\"averageLatency\":0.13333333333333333,\"duplicate\":0,\"latencyDeviation\":0.057735026918962526,\"lost\":1,\"packets\":3,\"stale\":true,\"tag\":\"PT101\"}\n{\"age\":0.09999999999999964,\"averageLatency\":0.09999999999999964,\"duplicate\":0,\"latencyDeviation\":0,\"lost\":0,\"packets\":1,\"stale\":false,\"tag\":\"TT102\"}\n",
+      "output_sha256": "73081532787215f3e2440f2e5057e4543f25fd189f0f501216c0d0f74b83e79c"
+    },
+    {
+      "display": true,
+      "name": "Reject an empty capture",
+      "argv": [
+        "./app"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "seconds": 0.076,
+      "output": "Missing input\n",
+      "output_sha256": "59dde097c155045b6510b44b5d0ee86176974b3476c8b96718ac676f66134e97"
+    },
+    {
+      "display": true,
+      "name": "Reject malformed input",
+      "argv": [
+        "./app"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "seconds": 0.136,
+      "output": "Invalid CSV row\n",
+      "output_sha256": "64aaf8a3f81772044320e6481a9fe33ac80bfdb41f6deb590512cd62c2cd30b7"
+    },
+    {
+      "display": true,
+      "name": "Reject unsupported invocation",
+      "argv": [
+        "./app",
+        "--unsupported"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "seconds": 0.077,
+      "output": "Unsupported command arguments\n",
+      "output_sha256": "a7217611e9bf4e2fd5cbbd1b8b97c5898f154b14da948e9e35008b59b8158bcd"
+    },
+    {
+      "display": true,
+      "name": "Reject an oversized input record",
+      "argv": [
+        "./app"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "seconds": 0.064,
+      "output": "Input record too large\n",
+      "output_sha256": "45eb187fdae97f09b79c4bcd5c03d9b942872125e5fb5b6a83011b36f8d62333"
+    }
+  ],
+  "passed": true
+}
