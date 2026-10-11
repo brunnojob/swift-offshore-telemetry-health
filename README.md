@@ -1,5 +1,7 @@
 # swift-offshore-telemetry-health
 
+[View execution evidence](https://brunnojob.github.io/devstart-lab/proofs/swift-offshore-telemetry-health/)
+
 Track per-channel freshness, packet loss and jitter from timestamped telemetry receipts.
 
 ```sh
